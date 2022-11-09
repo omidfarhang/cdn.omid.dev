@@ -18,7 +18,7 @@ const paths = {
     src: [
       'node_modules/vazirmatn/Vazirmatn-font-face.css',
       'node_modules/vazirmatn/misc/Farsi-Digits/Vazirmatn-FD-font-face.css',
-      'node_modules/font-awesome/css/font-awesome.css',
+      'node_modules/@fortawesome/fontawesome-free/css/all.css',
       'src/styles/**/*.scss'
     ],
     dest: 'dist'
@@ -36,7 +36,7 @@ const paths = {
     dest: 'dist/icons'
   },
   fonts: {
-    src: ['src/fonts/*', 'node_modules/vazirmatn/fonts/webfonts/*', 'node_modules/vazirmatn/misc/Farsi-Digits/fonts/webfonts/*', 'node_modules/font-awesome/fonts/*'],
+    src: ['src/fonts/*', 'node_modules/vazirmatn/fonts/webfonts/*', 'node_modules/vazirmatn/misc/Farsi-Digits/fonts/webfonts/*', 'node_modules/@fortawesome/fontawesome-free/webfonts/*'],
     dest: 'dist/fonts'
   }
 };
@@ -53,7 +53,7 @@ export function styles() {
     .pipe(sass({ style: 'expanded', includePaths: ['node_modules'] }))
     .pipe(autoprefixer())
     .pipe(replace('fonts/webfonts/', 'fonts/'))
-    .pipe(replace('../fonts/', 'fonts/'))
+    .pipe(replace('../webfonts/', 'fonts/'))
     .pipe(concat('styles.css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cleanCSS({level: 2}))
