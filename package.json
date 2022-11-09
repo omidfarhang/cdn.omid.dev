@@ -1,0 +1,63 @@
+{
+  "name": "cdn-omid-dev",
+  "description": "Common Styles and Libraries used by Omid.dev",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "css",
+    "sass",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:omidfarhang/cdn.omid.dev.git"
+  },
+  "bugs": {
+    "url": "https://github.com/omidfarhang/cdn.omid.dev/issues"
+  },
+  "homepage": "https://omid.dev",
+  "scripts": {
+    "indexts": "barrelsby -D -d src/ -l all -e '.*.spec.ts' -q",
+    "build": "gulp build",
+    "clean": "rm -rf ./dist",
+    "build:styles": "gulp styles",
+    "build:fonts": "gulp fonts",
+    "prepack": "npm run build"
+  },
+  "private": true,
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "vazirmatn": "^33.0.3"
+  },
+  "peerDependencies": {
+    "vazirmatn": "^33.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/register": "^7.18.9",
+    "barrelsby": "^2.5.1",
+    "child_process": "^1.0.2",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssimport": "^7.0.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-ruby-sass": "^4.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "jshint": "^2.13.5",
+    "sass": "^1.55.0"
+  }
+}
