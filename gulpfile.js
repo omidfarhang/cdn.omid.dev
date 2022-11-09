@@ -3,6 +3,7 @@ import babel from 'gulp-babel';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
+import replace from 'gulp-replace';
 import cleanCSS from 'gulp-clean-css';
 import del from 'gulp-clean';
 import dartSass from 'sass';
@@ -51,6 +52,8 @@ export function styles() {
     .pipe(cssimport(options))
     .pipe(sass({ style: 'expanded', includePaths: ['node_modules'] }))
     .pipe(autoprefixer())
+    .pipe(replace('fonts/webfonts/', 'fonts/'))
+    .pipe(replace('../fonts/', 'fonts/'))
     .pipe(concat('styles.css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cleanCSS({level: 2}))
