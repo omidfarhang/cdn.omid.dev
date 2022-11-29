@@ -35,6 +35,10 @@ const paths = {
     src: 'src/icons/*',
     dest: 'dist/icons'
   },
+  bootstrap: {
+    src: 'node_modules/bootstrap/dist/**/*',
+    dest: 'dist/bootstrap'
+  },
   fonts: {
     src: ['src/fonts/*', 'node_modules/vazirmatn/fonts/webfonts/*', 'node_modules/vazirmatn/misc/Farsi-Digits/fonts/webfonts/*', 'node_modules/@fortawesome/fontawesome-free/webfonts/*'],
     dest: 'dist/fonts'
@@ -78,6 +82,11 @@ export function fonts() {
   .pipe(gulp.dest(paths.fonts.dest));
 }
 
+export function bootstrap() {
+  return gulp.src(paths.bootstrap.src)
+  .pipe(gulp.dest(paths.bootstrap.dest));
+}
+
 export function icons() {
   return gulp.src(paths.icons.src)
   .pipe(gulp.dest(paths.icons.dest));
@@ -92,6 +101,6 @@ function watchFiles() {
 }
 export { watchFiles as watch };
 
-export const build = gulp.series(clean, styles, images, fonts, icons);
+export const build = gulp.series(clean, styles, scripts, bootstrap, images, fonts, icons);
 
 export default build;
