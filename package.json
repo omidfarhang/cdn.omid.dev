@@ -29,8 +29,8 @@
   },
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.4.0",
-    "bootstrap": "^5.3.0",
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "bootstrap": "^5.3.2",
     "vazirmatn": "^33.0.3"
   },
   "peerDependencies": {
@@ -39,14 +39,14 @@
     "vazirmatn": "^33.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5",
-    "@babel/register": "^7.22.5",
-    "barrelsby": "^2.8.0",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/register": "^7.22.15",
+    "barrelsby": "^2.8.1",
     "child_process": "^1.0.2",
-    "del": "^7.0.0",
+    "del": "^7.1.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
+    "gulp-autoprefixer": "^9.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
@@ -62,6 +62,6 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "jshint": "^2.13.6",
-    "sass": "^1.63.4"
+    "sass": "^1.69.5"
   }
 }
