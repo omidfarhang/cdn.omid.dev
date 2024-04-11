@@ -18,8 +18,7 @@ const paths = {
     src: [
       'node_modules/vazirmatn/Vazirmatn-font-face.css',
       'node_modules/vazirmatn/misc/Farsi-Digits/Vazirmatn-FD-font-face.css',
-      'node_modules/@fortawesome/fontawesome-free/css/all.css',
-      'src/styles/**/*.scss'
+      'node_modules/@fortawesome/fontawesome-free/css/all.css'
     ],
     dest: 'dist'
   },
@@ -40,7 +39,11 @@ const paths = {
     dest: 'dist/bootstrap'
   },
   fonts: {
-    src: ['src/fonts/*', 'node_modules/vazirmatn/fonts/webfonts/*', 'node_modules/vazirmatn/misc/Farsi-Digits/fonts/webfonts/*', 'node_modules/@fortawesome/fontawesome-free/webfonts/*'],
+    src: [
+      'node_modules/vazirmatn/fonts/webfonts/*',
+      'node_modules/vazirmatn/misc/Farsi-Digits/fonts/webfonts/*',
+      'node_modules/@fortawesome/fontawesome-free/webfonts/*'
+    ],
     dest: 'dist/fonts'
   }
 };
@@ -52,7 +55,7 @@ export function clean() {
 
 export function styles() {
   var options = { includePaths: ['node_modules'], matchPattern: "*.css"};
-  return gulp.src(paths.styles.src)
+  return gulp.src(paths.styles.src, {removeBOM: false, allowEmpty: true})
     .pipe(cssimport(options))
     .pipe(sass({ style: 'expanded', includePaths: ['node_modules'] }))
     .pipe(autoprefixer())
@@ -65,7 +68,7 @@ export function styles() {
 }
 
 export function scripts() {
-  return gulp.src(paths.scripts.src, { sourcemaps: true })
+  return gulp.src(paths.scripts.src, {removeBOM: false, sourcemaps: true })
     .pipe(babel())
     .pipe(uglify())
     .pipe(concat('scripts.min.js'))
@@ -73,22 +76,22 @@ export function scripts() {
 }
 
 export function images() {
-  return gulp.src(paths.images.src)
+  return gulp.src(paths.images.src, {removeBOM: false, allowEmpty: true})
     .pipe(gulp.dest(paths.images.dest));
 }
 
 export function fonts() {
-  return gulp.src(paths.fonts.src)
+  return gulp.src(paths.fonts.src, {removeBOM: false, allowEmpty: true})
   .pipe(gulp.dest(paths.fonts.dest));
 }
 
 export function bootstrap() {
-  return gulp.src(paths.bootstrap.src)
+  return gulp.src(paths.bootstrap.src, {removeBOM: false, allowEmpty: true})
   .pipe(gulp.dest(paths.bootstrap.dest));
 }
 
 export function icons() {
-  return gulp.src(paths.icons.src)
+  return gulp.src(paths.icons.src, {removeBOM: false, allowEmpty: true})
   .pipe(gulp.dest(paths.icons.dest));
 }
 
@@ -101,6 +104,6 @@ function watchFiles() {
 }
 export { watchFiles as watch };
 
-export const build = gulp.series(clean, styles, scripts, bootstrap, images, fonts, icons);
+export const build = gulp.series(clean, styles, bootstrap, fonts);
 
 export default build;
